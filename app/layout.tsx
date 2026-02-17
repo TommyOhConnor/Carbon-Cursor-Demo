@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import AppHeader from "@/components/AppHeader";
-import { Content } from "@carbon/react";
 
 export const metadata: Metadata = {
   title: "Carbon Prototype",
@@ -17,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AppHeader />
-        <Content id="main-content">{children}</Content>
+        <main id="main-content">{children}</main>
       </body>
     </html>
   );
