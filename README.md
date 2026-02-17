@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Carbon Prototype
 
-## Getting Started
+Interactive interface prototypes built with the [IBM Carbon Design System](https://github.com/carbon-design-system/carbon). This app uses **only** Carbon components for UI so you can explore and extend the design system in a real Next.js app.
 
-First, run the development server:
+## Run the app
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). Use the header to switch between **Home** and **Dashboard**.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Adding new pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create a new folder under `app/` (e.g. `app/my-page/`).
+2. Add a `page.tsx` that uses Carbon components.
+3. Add `'use client';` at the top of the file (Carbon components are client-side).
+4. Import components from `@carbon/react` and icons from `@carbon/react/icons`.
+5. Add a link in `components/AppHeader.tsx` so the new page appears in the nav.
 
-## Learn More
+## Building with Carbon
 
-To learn more about Next.js, take a look at the following resources:
+- **Components**: Import from `@carbon/react` (e.g. `Button`, `TextInput`, `Grid`, `Tabs`, `DataTable`).
+- **Icons**: Import from `@carbon/react/icons` (e.g. `import { Add } from '@carbon/react/icons'`).
+- **Styles**: Global Carbon styles are loaded in `app/globals.scss` via `@use '@carbon/react'`. You can add page-specific SCSS there or in component-level files.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Keep all UI built with Carbon so prototypes stay consistent and accessible.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Resources
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Carbon React Storybook](https://react.carbondesignsystem.com/) – browse and copy component usage.
+- [Carbon React tutorial](https://carbondesignsystem.com/developing/react-tutorial/overview) – official Next.js + Carbon walkthrough.
+- [Carbon Design System](https://carbondesignsystem.com/) – guidelines and documentation.
