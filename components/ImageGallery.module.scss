@@ -1,0 +1,132 @@
+@use '@carbon/motion';
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.gridItem {
+  min-width: 0;
+}
+
+.tile {
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    box-shadow motion.$duration-fast-01 motion.motion(standard, productive),
+    transform motion.$duration-fast-01 motion.motion(standard, productive);
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    outline: 2px solid var(--cds-focus);
+    outline-offset: 2px;
+  }
+}
+
+.thumbnail {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+.caption {
+  display: block;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cds-text-primary);
+}
+
+.subheadline {
+  display: block;
+  padding: 0 1rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--cds-text-primary);
+  line-height: 1.4;
+}
+
+.lightboxImageWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 60vh;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  flex-shrink: 0;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  background-color: var(--cds-layer-01) !important;
+  border-radius: 50%;
+
+  &:hover:not(:disabled) {
+    background-color: var(--cds-layer-02) !important;
+  }
+}
+
+.hideTooltip :global(.cds--tooltip-content),
+.hideTooltip :global(.cds--popover-caret) {
+  display: none !important;
+}
+
+.navButtonPrev {
+  left: 1.5rem;
+}
+
+.navButtonNext {
+  right: 1.5rem;
+}
+
+.lightboxImage {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: var(--cds-text-secondary);
+  min-width: 4ch;
+  width: 100%;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 60vh;
+}
+
+.lightboxContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.lightboxSubheadline {
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  color: var(--cds-text-primary);
+  text-align: center;
+  max-width: 45ch;
+  line-height: 1.5;
+}

@@ -1,14 +1,66 @@
-@use '@carbon/react';
+// Use Carbon styles with fonts from IBM CDN so Next.js doesn't need to resolve ~@ibm/plex
+@use '@carbon/styles' with ($use-akamai-cdn: true);
+
+// Ensure html/body fill viewport so theme background extends below content
+html,
+body {
+  min-height: 100%;
+}
 
 .main-content-grid {
   padding-top: 2rem;
   padding-bottom: 3rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .page-heading {
   margin-bottom: 1rem;
+  padding-top: 3rem;
 }
 
 .tile-heading {
   margin-bottom: 0.5rem;
 }
+
+.input-demo {
+  max-width: 20rem;
+}
+
+.form-demo-fieldset {
+  min-width: 0;
+  max-width: 100%;
+
+  .form-demo-fieldset-grid {
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-left: 1rem;
+  }
+}
+
+/* Form spacing: apply to all form fields and submit/action areas */
+.form-field {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.form-submit {
+  margin-top: 2rem;
+}
+
+.onboarding-summary .cds--list--unordered {
+  margin-bottom: 0;
+}
+
+.onboarding-summary .cds--list__item {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+// Hide the header’s side nav on wide viewports; nav links show in the header instead
+@media (min-width: 66rem) {
+  .header-sidenav {
+    display: none !important;
+  }
+}
+

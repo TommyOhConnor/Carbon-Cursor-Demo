@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import AppHeader from "@/components/AppHeader";
+import ThemeProvider from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Carbon Prototype",
@@ -13,10 +14,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('carbon-theme-mode');var v=['white','g10','g90','g100'];if(v.indexOf(t)>=0){document.documentElement.classList.add('cds--'+t);}else{document.documentElement.classList.add('cds--g100');}})();`,
+          }}
+        />
+      </head>
       <body>
-        <AppHeader />
-        <main id="main-content">{children}</main>
+        <ThemeProvider>
+          <AppHeader />
+          <main id="main-content">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
