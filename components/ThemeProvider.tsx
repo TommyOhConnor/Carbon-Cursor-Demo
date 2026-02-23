@@ -1,7 +1,6 @@
 'use client';
 
 import { createContext, useContext, useState, useCallback, useEffect, useRef } from 'react';
-import { Theme } from '@carbon/react';
 
 export type ThemeMode = 'white' | 'g10' | 'g90' | 'g100';
 
@@ -23,17 +22,16 @@ export function useTheme() {
 }
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
+  // Always start with g100 to avoid hydration mismatch (server has no localStorage)
   const [theme, setThemeState] = useState<ThemeMode>('g100');
   const isFirstMount = useRef(true);
 
+  // Sync state from localStorage after mount. Don't touch DOM - inline script already set html class.
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const stored = localStorage.getItem(STORAGE_KEY) as ThemeMode | null;
     const next = VALID_THEMES.includes(stored as ThemeMode) ? (stored as ThemeMode) : 'g100';
     setThemeState(next);
-    const root = document.documentElement;
-    root.classList.remove(...THEME_CLASSES);
-    root.classList.add(`cds--${next}`);
   }, []);
 
   // Sync html theme when user toggles (skip first mount; init handled above)
@@ -65,9 +63,11 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     });
   }, []);
 
+  // No Theme wrapper - Carbon styles use the cds--* class on html (set by inline script).
+  // The Theme component was adding a div with its own theme class, causing a flash.
   return (
     <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
-      <Theme theme={theme}>{children}</Theme>
+      {children}
     </ThemeContext.Provider>
   );
 }

@@ -18,14 +18,16 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('carbon-theme-mode');var v=['white','g10','g90','g100'];if(v.indexOf(t)>=0){document.documentElement.classList.add('cds--'+t);}else{document.documentElement.classList.add('cds--g100');}})();`,
+            __html: `(function(){var t=localStorage.getItem('carbon-theme-mode');var v=['white','g10','g90','g100'];var n=v.indexOf(t)>=0?t:'g100';document.documentElement.classList.add('cds--'+n);})();`,
           }}
         />
       </head>
       <body>
         <ThemeProvider>
-          <AppHeader />
-          <main id="main-content">{children}</main>
+          <div className="site-container">
+            <AppHeader />
+            <main id="main-content">{children}</main>
+          </div>
         </ThemeProvider>
       </body>
     </html>

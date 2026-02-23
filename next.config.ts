@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV === 'development';
+const basePath = isDev ? '' : '/Carbon-Cursor-Demo-Pub';
+
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/Carbon-Cursor-Demo',
-assetPrefix: '/Carbon-Cursor-Demo/'
+  basePath,
+  assetPrefix: basePath || undefined,
+  trailingSlash: true,
 };
 
 export default nextConfig;

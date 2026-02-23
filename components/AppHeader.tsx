@@ -52,6 +52,9 @@ export default function AppHeader() {
                   <HeaderMenuItem as={Link} href="/onboarding">
                     Onboarding
                   </HeaderMenuItem>
+                  <HeaderMenuItem as={Link} href="/demographics">
+                    Demographics
+                  </HeaderMenuItem>
                 </HeaderMenu>
                 <HeaderMenuItem as={Link} href="/theme">
                   Theme
@@ -92,6 +95,9 @@ export default function AppHeader() {
                     </SideNavMenuItem>
                     <SideNavMenuItem as={Link} href="/onboarding" onClick={onClickSideNavExpand}>
                       Onboarding
+                    </SideNavMenuItem>
+                    <SideNavMenuItem as={Link} href="/demographics" onClick={onClickSideNavExpand}>
+                      Demographics
                     </SideNavMenuItem>
                   </SideNavMenu>
                   <SideNavLink as={Link} href="/theme" onClick={onClickSideNavExpand}>

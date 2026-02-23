@@ -31,12 +31,13 @@ export default function HomePage() {
             }}
           >
             <Image
-              src="/arlo.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/arlo.png`}
               alt="Arlo, Tommy's dog, a black and white speckled dog looking at the camera"
               width={280}
               height={280}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               priority
+              unoptimized
             />
           </div>
           <figcaption style={{ marginTop: '0.5rem', fontSize: '0.875rem', textAlign: 'center' }}>

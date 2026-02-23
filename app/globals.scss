@@ -7,6 +7,15 @@ body {
   min-height: 100%;
 }
 
+// Limit site width to a typical content max (1280px) and center
+.site-container {
+  max-width: 80rem; // 1280px
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .main-content-grid {
   padding-top: 2rem;
   padding-bottom: 3rem;
@@ -42,6 +51,47 @@ body {
 .form-field {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+/* Demographics filter toolbar: bottom-align Search, Dropdowns, and MultiSelect */
+.demographics-filter-toolbar {
+  align-items: end;
+}
+
+/* Demographics results table */
+.demographics-table-header {
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 0.75rem 0;
+  border-bottom: 2px solid var(--cds-border-strong, #8d8d8d);
+}
+
+.demographics-sort-btn {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+
+  &:hover {
+    color: var(--cds-link-primary, #0f62fe);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--cds-focus, #0f62fe);
+    outline-offset: 2px;
+  }
+}
+
+.demographics-table-row {
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--cds-border-subtle, #e0e0e0);
 }
 
 .form-submit {
