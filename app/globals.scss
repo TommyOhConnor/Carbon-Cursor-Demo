@@ -92,6 +92,11 @@ body {
   padding: 0.5rem 0;
   font-size: 0.875rem;
   border-bottom: 1px solid var(--cds-border-subtle, #e0e0e0);
+
+  &:nth-child(even) {
+    background-color: var(--cds-layer-01, #f4f4f4);
+  }
+
 }
 
 .form-submit {
