@@ -43,4 +43,4 @@ No test framework is configured.
 
 ### Static Export
 
-`next.config.ts` sets `output: 'export'` with `basePath: '/Carbon-Cursor-Demo-Pub'`. All asset paths must account for this prefix.
+`next.config.ts` sets `output: 'export'`. The `basePath` is empty in development and `/Carbon-Cursor-Demo-Pub` in production. Client-side code uses `NEXT_PUBLIC_BASE_PATH` from `.env.development` / `.env.production` (see `.env.example`). All asset paths must account for this prefix in production.

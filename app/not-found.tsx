@@ -4,14 +4,14 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { Grid, Column, Heading, Button } from '@carbon/react';
 
-const BASE_PATH = '/Carbon-Cursor-Demo-Pub';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export default function NotFound() {
   useEffect(() => {
     const pathname = window.location.pathname;
     // If we're at the base path without trailing slash, redirect so index.html is served
-    if (pathname === BASE_PATH) {
-      window.location.replace(`${BASE_PATH}/`);
+    if (basePath && pathname === basePath) {
+      window.location.replace(`${basePath}/`);
     }
   }, []);
 
